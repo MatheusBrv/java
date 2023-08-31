@@ -27,27 +27,28 @@ public class Home extends javax.swing.JFrame {
 
     public void mostrar_citashoy() {
         //Query para para realizar la consulta en la base de datos...
-        String Query = "SELECT *FROM citas WHERE  fecha_cita=current_date()";
-        model = new DefaultTableModel(null, Campos_tabla);
+        String Query = "SELECT *FROM citas WHERE  fecha_cita=current_date()";  // Ta
+        model = new DefaultTableModel(null, Campos_tabla);                // Ta   
         try {
-            Statement st = (Statement) conectar.createStatement();
-            ResultSet rs = st.executeQuery(Query);
-
-            while (rs.next()) {
-                informacion[0] = rs.getString("turno");
-                informacion[1] = rs.getString("cliente");
-                informacion[2] = rs.getString("fecha_cita");
-                informacion[3] = rs.getString("hora_cita");
-                informacion[4] = rs.getString("tipo_examen");
-                informacion[5] = rs.getString("nombre_examen");
-                informacion[6] = rs.getString("precio");
-                model.addRow(informacion);
-            }
-            tabla_citas.setModel(model);
-        } catch (SQLException ex) {
-            System.out.println(ex);
+            Statement st = (Statement) conectar.createStatement();             // Ta
+            ResultSet rs = st.executeQuery(Query);                             // Ta
+            while (rs.next()) {                                                // Tc
+                informacion[0] = rs.getString("turno");            // Ta
+                informacion[1] = rs.getString("cliente");          // Ta
+                informacion[2] = rs.getString("fecha_cita");       // Ta
+                informacion[3] = rs.getString("hora_cita");        // Ta
+                informacion[4] = rs.getString("tipo_examen");      // Ta
+                informacion[5] = rs.getString("nombre_examen");    // Ta
+                informacion[6] = rs.getString("precio");           // Ta
+                model.addRow(informacion);                                     // To
+            }      
+            tabla_citas.setModel(model);                                       // To
+        } catch (SQLException ex) {                                            // Tc
+            System.out.println(ex);                                            // To
         }
     }
+    /* Coste de tiempo
+       T = 11Ta + 3To + 2Tc       */
 
     public Home() {
         initComponents();
@@ -325,27 +326,27 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        String Query = "SELECT *FROM citas";
-        model = new DefaultTableModel(null, Campos_tabla);
-        try {
-            Statement st = (Statement) conectar.createStatement();
-            ResultSet rs = st.executeQuery(Query);
-
-            while (rs.next()) {
-                informacion[0] = rs.getString("turno");
-                informacion[1] = rs.getString("cliente");
-                informacion[2] = rs.getString("fecha_cita");
-                informacion[3] = rs.getString("hora_cita");
-                informacion[4] = rs.getString("tipo_examen");
-                informacion[5] = rs.getString("nombre_examen");
-                informacion[6] = rs.getString("precio");
-                model.addRow(informacion);
+        String Query = "SELECT *FROM citas";                                     // Ta
+        model = new DefaultTableModel(null, Campos_tabla);                  // Ta
+        try {                                                          
+            Statement st = (Statement) conectar.createStatement();               // Ta  
+            ResultSet rs = st.executeQuery(Query);                               // Ta 
+            while (rs.next()) {                                                  // Tc
+                informacion[0] = rs.getString("turno");              // Ta
+                informacion[1] = rs.getString("cliente");            // Ta
+                informacion[2] = rs.getString("fecha_cita");         // Ta
+                informacion[3] = rs.getString("hora_cita");          // Ta
+                informacion[4] = rs.getString("tipo_examen");        // Ta
+                informacion[5] = rs.getString("nombre_examen");      // Ta
+                informacion[6] = rs.getString("precio");             // Ta
+                model.addRow(informacion);                                       // To 
             }
-            tabla_citas.setModel(model);
-        } catch (SQLException ex) {
-            System.out.println(ex);
+            tabla_citas.setModel(model);                                         // To
+        } catch (SQLException ex) {                                              // Tc
+            System.out.println(ex);                                              // To
         }
-
+        /* Cose de tiempo
+           T = 11Ta + 3To + 2Tc       */
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -401,27 +402,28 @@ public class Home extends javax.swing.JFrame {
 
     private void txt_searchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_searchKeyPressed
         //Query para para realizar consulta por medio LIKE...
-        String Query = "SELECT *FROM citas WHERE cliente LIKE '%" + txt_search.getText() + "%' ";
-        model = new DefaultTableModel(null, Campos_tabla);
-
+        String Query = "SELECT *FROM citas WHERE cliente LIKE '%" + txt_search.getText() + "%' ";     // Ta
+        model = new DefaultTableModel(null, Campos_tabla);                                       // Ta
         try {
-            Statement st = (Statement) conectar.createStatement();
-            ResultSet rs = st.executeQuery(Query);
-
-            while (rs.next()) {
-                informacion[0] = rs.getString("turno");
-                informacion[1] = rs.getString("cliente");
-                informacion[2] = rs.getString("fecha_cita");
-                informacion[3] = rs.getString("hora_cita");
-                informacion[4] = rs.getString("Tipo_examen");
-                informacion[5] = rs.getString("nombre_examen");
-                informacion[5] = rs.getString("precio");
-                model.addRow(informacion);
-            }
-            tabla_citas.setModel(model);
-        } catch (SQLException ex) {
-
+            Statement st = (Statement) conectar.createStatement();                                    // Ta
+            ResultSet rs = st.executeQuery(Query);                                                    // Ta
+            while (rs.next()) {                                                                       // Tc
+                informacion[0] = rs.getString("turno");                                   // Ta
+                informacion[1] = rs.getString("cliente");                                 // Ta
+                informacion[2] = rs.getString("fecha_cita");                              // Ta
+                informacion[3] = rs.getString("hora_cita");                               // Ta
+                informacion[4] = rs.getString("Tipo_examen");                             // Ta
+                informacion[5] = rs.getString("nombre_examen");                           // Ta
+                informacion[5] = rs.getString("precio");                                  // Ta
+                model.addRow(informacion);                                                            // To
+            }                         
+            tabla_citas.setModel(model);                                                              // To
+        } catch (SQLException ex) {                                                                   // Tc
+            System.out.println(ex);                                                                   // To
         }
+        /* Coste de tiempo
+            T = 11Ta + 3To + 2Tc       */
+
     }//GEN-LAST:event_txt_searchKeyPressed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
