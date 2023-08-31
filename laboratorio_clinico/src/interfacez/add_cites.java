@@ -266,26 +266,26 @@ public class add_cites extends javax.swing.JFrame {
 
         //------------------------------------------------------------------------
         try {
-            CallableStatement insert = conectar.prepareCall("{call add_cites(?,?,?,?,?,?,?)}");
-            insert.setString(1, txt_turn.getText());
-            insert.setString(2, txt_client.getText());
-            insert.setString(3, ((JTextField) jc_date.getDateEditor().getUiComponent()).getText());
-            insert.setString(4, combo_hora.getSelectedItem().toString());
-            insert.setString(5, combo_tipos.getSelectedItem().toString());
-            insert.setString(6, combo_examen.getSelectedItem().toString());
-            insert.setString(7, txt_price.getText());
-
+            CallableStatement insert = conectar.prepareCall("{call add_cites(?,?,?,?,?,?,?)}");                  // Ta
+            insert.setString(1, txt_turn.getText());                                                  // To
+            insert.setString(2, txt_client.getText());                                                // To
+            insert.setString(3, ((JTextField) jc_date.getDateEditor().getUiComponent()).getText());   // To
+            insert.setString(4, combo_hora.getSelectedItem().toString());                             // To
+            insert.setString(5, combo_tipos.getSelectedItem().toString());                            // To
+            insert.setString(6, combo_examen.getSelectedItem().toString());                           // To  
+            insert.setString(7, txt_price.getText());                                                 // To
             //ejecutamos query
-            insert.execute();
-            //presentamos mensaje de registro, lo llamamos de la clase datos
-            datos d = new datos();
-            d.capturar_datos();
-            d.mostrar_datos();
-            this.dispose();
-
-        } catch (HeadlessException | SQLException e) {
-            JOptionPane.showMessageDialog(null, "ERROR INTENTE NUEVAMENTE!!!\n" + e);
+            insert.execute();                                                                                         // To
+            //presentamos mensaje de registro, lo llamamos de la clase datos          
+            datos d = new datos();                                                                                    // Ta
+            d.capturar_datos();                                                                                       // To
+            d.mostrar_datos();                                                                                        // To
+            this.dispose();                                                                                           // To
+        } catch (HeadlessException | SQLException e) {                                                                // Tc
+            JOptionPane.showMessageDialog(null, "ERROR INTENTE NUEVAMENTE!!!\n" + e);                 // To
         }
+        /* Coste de Tiempo
+         T = 2Ta + 12To + Tc       */
     }//GEN-LAST:event_btn_saveActionPerformed
 
     private void combo_tiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_tiposActionPerformed
@@ -299,25 +299,24 @@ public class add_cites extends javax.swing.JFrame {
     private void btn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_updateActionPerformed
 
         try {
-            CallableStatement update = conectar.prepareCall("{call update_cites(?,?,?,?,?,?,?)}");
-            update.setString(1, txt_turn.getText());
-            update.setString(2, txt_client.getText());
-            update.setString(3, ((JTextField) jc_date.getDateEditor().getUiComponent()).getText());
-            update.setString(4, combo_hora.getSelectedItem().toString());
-            update.setString(5, combo_tipos.getSelectedItem().toString());
-            update.setString(6, combo_examen.getSelectedItem().toString());
-            update.setString(7, txt_price.getText());
-
+            CallableStatement update = conectar.prepareCall("{call update_cites(?,?,?,?,?,?,?)}");                 // Ta
+            update.setString(1, txt_turn.getText());                                                    // To
+            update.setString(2, txt_client.getText());                                                  // To
+            update.setString(3, ((JTextField) jc_date.getDateEditor().getUiComponent()).getText());     // To
+            update.setString(4, combo_hora.getSelectedItem().toString());                               // To
+            update.setString(5, combo_tipos.getSelectedItem().toString());                              // To
+            update.setString(6, combo_examen.getSelectedItem().toString());                             // To
+            update.setString(7, txt_price.getText());                                                   // To
             //ejecutamos query
-            update.execute();
-            //presentamos mensaje de registro
-            JOptionPane.showMessageDialog(null, "Cita reagendada");
-            this.dispose();
-
-        } catch (HeadlessException | SQLException e) {
-            JOptionPane.showMessageDialog(null, "ERROR INTENTE NUEVAMENTE!!!\n" + e);
+            update.execute();                                                                                          // To
+            //presentamos mensaje de registro 
+            JOptionPane.showMessageDialog(null, "Cita reagendada");                            // To
+            this.dispose();                                                                                            // To 
+        } catch (HeadlessException | SQLException e) {                                                                 // Tc
+            JOptionPane.showMessageDialog(null, "ERROR INTENTE NUEVAMENTE!!!\n" + e);                  // To     
         }
-
+        /* Coste de Tiempo
+         T = Ta + 11To + Tc       */
     }//GEN-LAST:event_btn_updateActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
