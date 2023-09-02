@@ -12,7 +12,7 @@ import interfacez.user_access;
  */
 public class Laboratorio_Clinico {
 
-    
+    // hola 
     public static void main(String[] args) {
        user_access ingreso=new user_access(); 
        ingreso.setVisible(true);
