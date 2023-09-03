@@ -15,7 +15,7 @@ import laboratorio_clinico.conexion_MYSQL;
 
 public class reportes extends javax.swing.JFrame {
 
-    // Esrtablecer conexion a MYSQL
+    // ta - Esrtablecer conexion a MYSQL
     conexion_MYSQL c = new conexion_MYSQL();
     Connection conectar = c.obtener_conexion();
 
@@ -164,7 +164,7 @@ public class reportes extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Reportes por fecha");
-
+         // tc - Acción del botón "Buscar" para generar el reporte por fecha
         jButton1.setBackground(new java.awt.Color(0, 102, 204));
         jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -207,6 +207,7 @@ public class reportes extends javax.swing.JFrame {
 
         txt_cant_p.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
 
+        // tc - Acción del botón "Salir" en el panel de reportes por fecha
         btn_cancelar1.setBackground(new java.awt.Color(255, 255, 255));
         btn_cancelar1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btn_cancelar1.setText("Salir");
@@ -292,9 +293,12 @@ public class reportes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void combo_fActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_fActionPerformed
+        // tc - Acción del ComboBox para generar diferentes tipos de reportes
 
         String i = combo_f.getSelectedItem().toString();
         if (i.equals("Reporte General")) {
+            // ta - Generar reporte de todas las citas
+
 //------------GENERAR REPORTE DE TODOS LAS CITA-------------------------------------
             try {
                 String Query = "SELECT *FROM citas";
@@ -309,6 +313,8 @@ public class reportes extends javax.swing.JFrame {
                     model.addRow(informacion);
                 }
                 table_r.setModel(model);
+                 // to - Mostrar precio total del reporte general
+
 //---------------------MOSTRAR PRECIO DE REPORTE---------------------------------------
                 try {
                     String query = "{call reporte_precio_total()}";
@@ -325,6 +331,8 @@ public class reportes extends javax.swing.JFrame {
                 System.out.println(ex);
             }
         } else {
+            // tc - Llamado de stored procedures de búsqueda para nuestro reporte por nombre de exámenes
+
 
 //------llamado de stored procedures de busqueda para nuestro reporte por nombre de examense-----------------
             try {
@@ -344,6 +352,8 @@ public class reportes extends javax.swing.JFrame {
             } catch (SQLException ex) {
                 Logger.getLogger(reportes.class.getName()).log(Level.SEVERE, null, ex);
             }
+            // to - Mostrar precio del reporte por tipo de examen
+
 //-------------------------------------------------------------------------------------------------------------
             try {
                 String query = "{call reporte_precio(?)}";
@@ -364,6 +374,8 @@ public class reportes extends javax.swing.JFrame {
     }//GEN-LAST:event_combo_fActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // tc - Acción del botón "Buscar" para generar el reporte por fecha
+
         //llamado metodo de reporte de persona por dia
         try {
             String query = "{call reporte_persona(?)}";
@@ -384,6 +396,8 @@ public class reportes extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(reportes.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+         // tc - Llamado del método de reporte de ingreso por persona por día
         //--------------------------------------------------------------------------------------------      
 
         try {
@@ -405,10 +419,13 @@ public class reportes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btn_cancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelar1ActionPerformed
+        // tc - Acción del botón "Salir" en el panel de reportes por fecha
+       
         dispose();
     }//GEN-LAST:event_btn_cancelar1ActionPerformed
 
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
+        // tc - Acción del botón "Salir" en el panel de reportes generales
         dispose();
     }//GEN-LAST:event_btn_cancelarActionPerformed
 
