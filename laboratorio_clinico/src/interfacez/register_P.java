@@ -6,6 +6,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Scanner;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import laboratorio_clinico.conexion_MYSQL;
@@ -25,7 +26,20 @@ public class register_P extends javax.swing.JFrame {
         btn_update.setEnabled(false);
         btn_delete.setEnabled(false);
     }
+    
+        public void ingreso(int[] vec, int n) {
+        Scanner sc = new Scanner(System.in);
+        int i = 0; // 1 (asignación)
 
+        while (i < n) { // 2 (comparación)
+            System.out.println("Ingrese el valor en la posición [" + i + "] del vector"); // 3 (impresión en pantalla)
+            vec[i] = sc.nextInt(); // 4 (lectura de entrada y escritura en el vector)
+            i++; // 5 (incremento)
+        }
+        // Tiempo Mejor Esperado: 15 unidades de tiempo constante (Tc)
+        // Tiempo Peor Esperado: n * 15 * Tc
+        // Tiempo Esperado: k * n (donde k es una constante)
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

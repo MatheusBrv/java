@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Scanner;
 import javax.swing.ImageIcon;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -52,6 +53,20 @@ public class mis_clientes extends javax.swing.JFrame {
         Image icon = new ImageIcon(getClass().getResource("/images/icon.png")).getImage();
         setIconImage(icon);
         mostrar_pacientes();
+    }
+    // Agregar la función ingreso
+    public void ingreso(int[] vec, int n) {
+        Scanner sc = new Scanner(System.in); /*1*/
+        int i = 0; /*2*/
+
+        while (i < n) { /*3*/
+            System.out.println("Ingrese el valor en la posición [" + i + "] del vector"); /*4*/
+            vec[i] = sc.nextInt(); /*5*/
+            i++; /*6*/
+        }
+        // Tiempo Mejor Esperado:  O(1) (cuando n es 0, el bucle no se ejecuta)
+        // Tiempo Peor Esperado: O(n) (cuando n es grande, el bucle se ejecuta n veces)
+        // Tiempo Esperado: O(n) (considerando una distribución uniforme de valores ingresados)
     }
 
     /**
