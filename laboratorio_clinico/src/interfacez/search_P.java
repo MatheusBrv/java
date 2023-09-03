@@ -26,7 +26,7 @@ public class search_P extends javax.swing.JFrame {
     Connection conectar = c.obtener_conexion();
 
     String[] Campos_tabla = {"Cédula", "Nombres", "Apellidos", "Edad", "Dirección", "Télefono"};
-    String[] informacion = new String[50];
+    String[] informacion = new String[50]; /*2 ta*/
 
     public void mostrar_pacientes() {
 
@@ -37,7 +37,7 @@ public class search_P extends javax.swing.JFrame {
             Statement st = (Statement) conectar.createStatement();
             ResultSet rs = st.executeQuery(Query);
 
-            while (rs.next()) {
+            while (rs.next()) {    /*3 n*tc + tc*/
                 informacion[0] = rs.getString("cedula");
                 informacion[1] = rs.getString("nombres");
                 informacion[2] = rs.getString("apellidos");
@@ -73,12 +73,12 @@ public class search_P extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tabla_pacientes = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
-        txt_search = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton(); // ta - Asignación de un botón
+        jScrollPane2 = new javax.swing.JScrollPane(); // ta - Asignación de un componente de desplazamiento
+        tabla_pacientes = new javax.swing.JTable(); // ta - Asignación de una tabla
+        jLabel2 = new javax.swing.JLabel(); // ta - Asignación de una etiqueta
+        txt_search = new javax.swing.JTextField(); // ta - Asignación de un campo de texto
+        jButton2 = new javax.swing.JButton(); // ta - Asignación de otro botón
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -97,19 +97,19 @@ public class search_P extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(250, 240, 212));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Mis Pacientes", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Mis Pacientes", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 18), new java.awt.Color(0, 0, 0))); // NOI18N // ta - Asignación de un panel
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(0, 51, 255));
-        jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Agregar Pacientes");
+        jButton1.setBackground(new java.awt.Color(0, 51, 255)); // ta - Asignación de color a un botón
+        jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N // ta - Asignación de una fuente al botón
+        jButton1.setForeground(new java.awt.Color(255, 255, 255)); // ta - Asignación de una fuente al botón
+        jButton1.setText("Agregar Pacientes"); // ta - Asignación de texto a un botón
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, -1, -1)); // ta - Asignación de posición al botón
 
         tabla_pacientes = new JTable()
         {
@@ -164,30 +164,30 @@ public class search_P extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 590, 190));
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Buscar paciente por nombre:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 20));
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N // ta - Asignación de una fuente a la etiqueta
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0)); // ta - Asignación de color de fuente a la etiqueta
+        jLabel2.setText("Buscar paciente por nombre:"); // ta - Asignación de texto a la etiqueta
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 20)); // ta - Asignación de posición a la etiqueta
 
-        txt_search.setBackground(new java.awt.Color(255, 255, 255));
-        txt_search.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txt_search.setBackground(new java.awt.Color(255, 255, 255)); // ta - Asignación de color de fondo al campo de texto
+        txt_search.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N // ta - Asignación de fuente al campo de texto
         txt_search.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txt_searchKeyPressed(evt);
             }
         });
-        jPanel1.add(txt_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 63, 160, 30));
+        jPanel1.add(txt_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 63, 160, 30)); // ta - Asignación de posición al campo de texto
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("CANCELAR");
+        jButton2.setBackground(new java.awt.Color(255, 255, 255)); // ta - Asignación de color a otro botón
+        jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N // ta - Asignación de fuente a otro botón
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));// ta - Asignación de color de fuente a otro botón
+        jButton2.setText("CANCELAR"); // ta - Asignación de texto a otro botón
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 330, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 330, -1, -1)); // ta - Asignación de posición a otro botón
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -203,23 +203,24 @@ public class search_P extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed // ta - Asignación de un botón
         register_P rp = new register_P();
         rp.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed // ta - Asignación de otro botón
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void tabla_pacientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabla_pacientesMouseClicked
+        // ta - Manejo del evento de clic en la tabla de pacientes
         int columna = tabla_pacientes.getSelectedRow();
         if (evt.getClickCount() == 2) {
 
             register_P r = new register_P();
             r.setVisible(true);
-
+            // ta - Asignación de valores a los campos en la ventana de registro
             register_P.txt_cedula.setText(tabla_pacientes.getModel().getValueAt(columna, 0).toString());
             register_P.txt_name.setText(tabla_pacientes.getModel().getValueAt(columna, 1).toString());
             register_P.txt_lastname.setText(tabla_pacientes.getModel().getValueAt(columna, 2).toString());
@@ -236,6 +237,7 @@ public class search_P extends javax.swing.JFrame {
     }//GEN-LAST:event_tabla_pacientesMouseClicked
 
     private void txt_searchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_searchKeyPressed
+        // to - Inicio del procesamiento de la tecla presionada en el campo de búsqueda
         //Query para para realizar consulta por medio LIKE...
         String Query = "SELECT *FROM pacientes WHERE nombres LIKE '%" + txt_search.getText() + "%' ";
         model = new DefaultTableModel(null, Campos_tabla);
@@ -276,12 +278,16 @@ public class search_P extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
+             //tc - Manejo de excepción en caso de error de clase no encontrada
             java.util.logging.Logger.getLogger(search_P.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
+            // tc - Manejo de excepción en caso de error de instanciación
             java.util.logging.Logger.getLogger(search_P.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
+        // tc - Manejo de excepción en caso de error de acceso ilegal
             java.util.logging.Logger.getLogger(search_P.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            // tc - Manejo de excepción en caso de error de apariencia no soportada
             java.util.logging.Logger.getLogger(search_P.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
